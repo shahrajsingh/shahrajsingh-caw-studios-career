@@ -1,0 +1,33 @@
+<h3 mat-dialog-title>Please Enter Board Width</h3>
+
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label> Width </mat-label>
+      <input
+        [(ngModel)]="width"
+        #widthctrl="ngModel"
+        type="number"
+        required
+        matInput
+        min="1"
+        max="{{ maxCols }}"
+        name="width"
+      />
+      <mat-error *ngIf="widthctrl.invalid"
+        >Enter Width between 1 and {{ maxCols }}</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()">Cancel</button>
+  <button
+    [mat-dialog-close]="width"
+    cdkFocusInitial
+    *ngIf="width <= maxCols && width >= 10"
+  >
+    Ok
+  </button>
+  <button *ngIf="width > maxCols || width < 10" (click)="alrt()">Ok</button>
+</div>

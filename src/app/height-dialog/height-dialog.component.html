@@ -1,0 +1,33 @@
+<h3 mat-dialog-title>Please Enter Board Height</h3>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Height </mat-label>
+      <input
+        ngModel
+        type="number"
+        [(ngModel)]="height"
+        #heightctrl="ngModel"
+        required
+        matInput
+        min="10"
+        max="{{ maxRows }}"
+        name="height"
+      />
+      <mat-error *ngIf="heightctrl.invalid"
+        >Input a number between 1 and {{ maxRows }}</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onNoClick()">Cancel</button>
+  <button
+    [mat-dialog-close]="height"
+    cdkFocusInitial
+    *ngIf="height <= maxRows && height >= 10"
+  >
+    Ok
+  </button>
+  <button *ngIf="height > maxRows || height < 10" (click)="alrt()">Ok</button>
+</div>

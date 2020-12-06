@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.boxes {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+button {
+  height: 28px;
+}
